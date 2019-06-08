@@ -1,0 +1,27 @@
+footer {
+  background: linear-gradient(to bottom, #f7f7f7 0%, #e3e3e3 100%);
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-width: 40rem;
+}
+
+/* 600px */
+@media only screen and (max-width: 37.5em) {
+  footer {
+    padding: .5rem;
+  }
+}
+
+.footer__copyright {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.footer__link {
+  margin-left: .7rem;
+  text-decoration: none;
+  color: inherit;
+}

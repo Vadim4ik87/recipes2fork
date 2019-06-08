@@ -1,0 +1,19 @@
+.App {
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  height: 100vh;
+  min-width: 40rem;
+  max-width: 256em;
+}
+
+.wrapper {
+  order: 2;
+  flex: 1 70%;
+  display: flex;
+  flex-direction: column;
+}
