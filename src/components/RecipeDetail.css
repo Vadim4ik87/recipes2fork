@@ -49,6 +49,13 @@
   }
 }
 
+/* 900px */
+@media only screen and (max-width: 56.25em) {
+  .recipeDetail__wrapper {
+    width: 80%;
+  }
+}
+
 /* 600px */
 @media only screen and (max-width: 37.5em) {
   .recipeDetail__wrapper {

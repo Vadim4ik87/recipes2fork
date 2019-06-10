@@ -44,6 +44,14 @@
   color: red;
 }
 
+/* 900px */
+@media only screen and (max-width: 56.25em) {
+  .dropdown__btn {
+    display: block;
+    color: red;
+  }
+}
+
 .dropdown__img {
   height: 10rem;
   width: 10rem;

@@ -45,6 +45,13 @@
   height: auto;
 }
 
+/* 900px */
+@media only screen and (max-width: 56.25em) {
+  .recipe__save {
+    display: block;
+  }
+}
+
 .recipe__btn {
   cursor: pointer;
   background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 100%);

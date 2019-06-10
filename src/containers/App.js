@@ -5,12 +5,13 @@ import RecipesList from "../components/RecipesList";
 import RecipeDetail from "../components/RecipeDetail";
 import Footer from "../components/Footer";
 import Spinner from "../components/Spinner";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 // const key = "7d7b90e7ec6273b9c786502ba5aaf5dc";
 // const key = "dda0e333667ea982d69119090c03ccf4";
-// const key = "5babede0c0e663b94cd36fb22d574fe1";
-const key = "16ef46bfa7bf38bd8452758c86e77ac9";
+const key = "5babede0c0e663b94cd36fb22d574fe1";
+// const key = "16ef46bfa7bf38bd8452758c86e77ac9";
 // const key = "37227132f45a69ca2b850e62640c8307";
 // const key = "8d622fa4cd54fb4acf85d04d1d484e33";
 
@@ -108,14 +109,16 @@ class App extends React.Component {
           term={this.state.term}
         />
         <div className="App">
-          <RecipesList
-            recipes={this.state.recipes}
-            onRecipeSelect={this.onRecipeSelect}
-            onReadStorage={this.readStorage}
-            onSubmit={this.onSubmit}
-            term={this.state.term}
-            sort={this.state.sort}
-          />
+          <ErrorBoundry>
+            <RecipesList
+              recipes={this.state.recipes}
+              onRecipeSelect={this.onRecipeSelect}
+              onReadStorage={this.readStorage}
+              onSubmit={this.onSubmit}
+              term={this.state.term}
+              sort={this.state.sort}
+            />
+          </ErrorBoundry>
           <RecipeDetail
             selectedRecipe={this.state.selectedRecipe}
             onRecipePopUpClose={this.onRecipePopUpClose}

@@ -8,6 +8,16 @@ class Header extends React.Component {
     this.state = { term: "" };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.storage.length !== nextProps.storage.length) {
+      return true;
+    } else if (this.state !== nextState) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   onFormSubmit = event => {
     event.preventDefault();
     if (this.state.term !== "") {

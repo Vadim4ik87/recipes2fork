@@ -3,9 +3,18 @@ import "./RecipesList.css";
 import Recipe from "./Recipe";
 import RenderButtons from "./RenderButtons";
 
-const RecipesList = props => {
-  const recipes = props.recipes.map(
-    ({ recipe_id, image_url, title, publisher }) => {
+class RecipesList extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.myRef = React.createRef();
+  }
+
+  scrollHandler = () => {
+    window.scrollTo(0, this.myRef.current.scrollIntoView());
+  };
+
+  recipes = () =>
+    this.props.recipes.map(({ recipe_id, image_url, title, publisher }) => {
       return (
         <Recipe
           key={recipe_id}
@@ -13,20 +22,20 @@ const RecipesList = props => {
           title={title}
           recipe_id={recipe_id}
           publisher={publisher}
-          onRecipeSelect={props.onRecipeSelect}
-          onReadStorage={props.onReadStorage}
+          onRecipeSelect={this.props.onRecipeSelect}
+          onReadStorage={this.props.onReadStorage}
         />
       );
-    }
-  );
+    });
 
-  const renderPagination = () => {
-    if (props.recipes.length) {
+  renderPagination = () => {
+    if (this.props.recipes.length) {
       return (
         <RenderButtons
-          onSubmit={props.onSubmit}
-          term={props.term}
-          sort={props.sort}
+          onSubmit={this.props.onSubmit}
+          term={this.props.term}
+          sort={this.props.sort}
+          scrollHandler={this.scrollHandler}
         />
       );
     } else {
@@ -34,12 +43,14 @@ const RecipesList = props => {
     }
   };
 
-  return (
-    <section className="recipes__list">
-      {recipes}
-      {renderPagination()}
-    </section>
-  );
-};
+  render() {
+    return (
+      <section ref={this.myRef} className="recipes__list">
+        {this.recipes()}
+        {this.renderPagination()}
+      </section>
+    );
+  }
+}
 
 export default RecipesList;

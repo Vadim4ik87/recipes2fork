@@ -20,13 +20,16 @@ class RenderButtons extends React.Component {
       }
     }
     this.setState({ page: currentPage });
+    this.props.scrollHandler();
   };
 
   renderBtns = () => {
     if (this.state.page <= 1) {
       return (
         <button
-          onClick={() => this.renderBtnCount("right")}
+          onClick={() => {
+            this.renderBtnCount("right");
+          }}
           className="renderBtn__btn"
         >
           Page {this.state.page + 1} &#9657;
@@ -36,13 +39,17 @@ class RenderButtons extends React.Component {
       return (
         <React.Fragment>
           <button
-            onClick={() => this.renderBtnCount("left")}
+            onClick={() => {
+              this.renderBtnCount("left");
+            }}
             className="renderBtn__btn"
           >
             &#9667; Page {this.state.page - 1}
           </button>
           <button
-            onClick={() => this.renderBtnCount("right")}
+            onClick={() => {
+              this.renderBtnCount("right");
+            }}
             className="renderBtn__btn"
           >
             Page {this.state.page + 1} &#9657;
